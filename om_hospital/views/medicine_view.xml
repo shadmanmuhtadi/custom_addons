@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Search View -->
+
+    <record id="action_medicine_search_view" model="ir.ui.view">
+        <field name="name">action.medicine.search.view</field>
+        <field name="model">medicine.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="strength"/>
+                <field name="manufacture"/>
+                <field name="indications"/>
+                <field name="unit_price"/>
+                <field name="dosage"/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Kanban View -->
+
+    <record id="action_medicine_kanban_view" model="ir.ui.view">
+        <field name="name">action.medicine.kanban.view</field>
+        <field name="model">medicine.product</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                     <field name="name"/>
+                                    </li>
+                                    <li>
+                                    <field name="strength"/>
+                                    </li>
+                                    <li>
+                                    <field name="manufacture"/> 
+                                    </li>
+                                    <li>
+                                    <field name="unit_price"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+
+    <record id="action_medicine_form_view" model="ir.ui.view">
+        <field name="name">action.medicine.tree.view</field>
+        <field name="model">medicine.product</field>
+        <field name="arch" type="xml">
+            <form >
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="strength"/>
+                        <field name="manufacture"/>
+                        <field name="indications"/>
+                        <field name="unit_price"/>
+                    </group>
+                    <group>
+                        <field name="dosage"/>
+                    </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Tree View -->
+
+    <record id="action_medicine_tree_view" model="ir.ui.view">
+        <field name="name">action.medicine.tree.view</field>
+        <field name="model">medicine.product</field>
+        <field name="arch" type="xml">
+        <tree name="Medicine">
+            <field name="name"/>
+            <field name="strength"/> 
+            <field name="manufacture"/>
+            <field name="indications"/>
+            <field name="dosage"/>
+            <field name="unit_price"/>
+        </tree>
+        </field>
+    </record>
+
+
+    <!-- Action View -->
+
+    <record id="action_medicine_view" model="ir.actions.act_window">
+        <field name="name">Medicine</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">medicine.product</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+        Add a new Medicine Product</p>
+        </field>
+    </record>
+
+</odoo>

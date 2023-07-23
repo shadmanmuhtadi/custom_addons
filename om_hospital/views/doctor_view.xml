@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Search View -->
+
+    <record id="action_doctor_search_view" model="ir.ui.view">
+        <field name="name">action.doctor.search.view</field>
+        <field name="model">doctor.details</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('id', 'ilike', self)]"/>
+                <field name="doctor_id"/> 
+                <field name="age"/>
+                <field name="gender"/>
+                <filter name="filter _male" string="Male" domain=" [('gender', '=', 'male')]"/>
+                <filter name="filter_female" string = "Female" domain= "[('gender','=','female')]"/>
+                <separator/>
+                <filter name="filter_kids" string = "Kids" domain= "[('age', '&lt;=' , 15)]"/>
+                <filter name="filter_archive" string = "Archive" domain= "[('active', '=' , False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
+                    <filter string="Age" name="age" context="{'group_by': 'age'}"/>
+                    <filter string="Doctor" name="doctor_id"  context="{'group_by': 'doctor_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+
+    <record id="action_doctor_kanban_view" model="ir.ui.view">
+        <field name="name">action.doctor.kanban.view</field>
+        <field name="model">doctor.details</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                    <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="age"/>
+                                    </li>
+                                    <li>
+                                        <field name="gender"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+
+    <record id="action_doctor_form_view" model="ir.ui.view">
+        <field name="name">action.doctor.form.view</field>
+        <field name="model">doctor.details</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="patient_appoinment_ids" widget='many2many_tags'/>
+                    </group>
+                    <group>
+                        <field name="doctor_id"/>
+                        <field name="gender"/>
+                        <field name="active"/>
+                    </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+
+    <record id="action_doctor_tree_view" model="ir.ui.view">
+        <field name="name">action.doctor.tree.view</field>
+        <field name="model">doctor.details</field>
+        <field name="arch" type="xml">
+        <tree name="Patient">
+            <field name="name"/>
+            <field name="doctor_id"/> 
+            <field name="age"/>
+            <field name="gender"/>
+            <field name="patient_appoinment_ids"/>
+        </tree>
+        </field>
+    </record>
+
+    <!-- Action View -->
+
+    <record id="action_doctor_view" model="ir.actions.act_window">
+        <field name="name">Doctor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doctor.details</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+        Add a new Doctor</p>
+        </field>
+    </record>
+
+
+</odoo>

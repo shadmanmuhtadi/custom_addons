@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Search View -->
+
+    <record id="action_patient_search_view" model="ir.ui.view">
+        <field name="name">action.patient.search.view</field>
+        <field name="model">patient.details</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="ref"/> 
+                <field name="age"/>
+                <field name="gender"/>
+                <searchpanel>
+                    <field name="gender" string="Gender" icon="fa-light fa-users" select="multi" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+
+    <record id="action_patient_kanban_view" model="ir.ui.view">
+        <field name="name">action.patient.kanban.view</field>
+        <field name="model">patient.details</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                    <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="age"/>
+                                    </li>
+                                    <li>
+                                        <field name="gender"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+
+    <record  id="action_patient_form_view" model="ir.ui.view">
+        <field name="name">action.patient.form.view</field>
+        <field name="model">patient.details</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="contact_number"/>
+                        <field name="email"/>
+                        <field name="date_of_birth"/>
+                    </group>
+                    <group>
+                        <field name="age"/>
+                        <field name="ref"/>
+                        <field name="gender"/>
+                        <field name="active"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string= 'Test Page 1' name='appointment'>
+                        <field name="test_html" string="Test HTML" options= "{'resizable':true}"/>
+                    </page>
+                    <page string= 'Test Page 2' name='test'>
+                            <form>
+                                <group>
+                                    <group>
+                                    </group>
+                                </group>
+                            </form>
+                    </page>
+                </notebook>
+            </sheet>
+            <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+
+    <record id="action_patient_tree_view" model="ir.ui.view">
+        <field name="name">action.patient.tree.view</field>
+        <field name="model">patient.details</field>
+        <field name="arch" type="xml">
+        <tree name="Patient" decoration-success="gender == 'male'" decoration-danger = "gender == 'female'" sample="1" multi_edit="1">
+            <field name="name" widget="badge" optional="show"/>
+            <field name="ref" optional="show"/> 
+            <field name="age" optional="show"/>
+            <field name="gender" widget="badge" optional="show"/>
+            <field name="contact_number" optional="show"/>
+            <field name="activity_ids" widget= "list_activity" optional="show"/>
+            <field name="email" optional="show"/>
+            <field name="date_of_birth" optional="show"/>
+        </tree>
+        </field>
+    </record>
+
+    <!-- Action View -->
+
+    <record id="action_patient_view" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.details</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+        Add a new Patient</p>
+        </field>
+    </record>
+
+
+</odoo>

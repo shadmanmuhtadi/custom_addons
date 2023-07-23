@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Test View -->
+
+
+
+    <!-- Medicine View -->
+
+    <menuitem
+        id="menu_medicine_parent"
+        name="Medicine Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_medicine_view"
+        sequence="10"/>
+
+    <!-- Appointment View -->
+
+    <menuitem
+        id="menu_appointment_parent"
+        name="Appointment Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_appointment_view"
+        sequence="10"/>
+
+    <!-- Doctor View -->
+
+    <menuitem
+        id="menu_doctor_parent"
+        name="Doctor Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_doctor_view"
+        sequence="10"/>
+
+    <!-- Patient Menu -->
+
+    <menuitem
+        id="menu_patient_parent"
+        name="Patient Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_patient_view"
+        sequence="10"/>
+
+
+    <!-- Root Menu -->
+
+    <menuitem
+        id="menu_hospital_managment_system_root"
+        name="Hospital Managment System"
+        sequence="10"/>
+</odoo>
