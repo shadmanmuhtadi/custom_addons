@@ -60,7 +60,12 @@
         <field name="arch" type="xml">
             <form >
                 <header>
-                    <field name="state" widget="statusbar" nolable="1" options="{'clickable': '1'}" statusbar_visible ="draft,in_consultation,done"/>
+                    <button name="action_in_consultation" string="In consultation" class="oe_highlight" data-hotkey="v" type="object"/>
+                    <button name="action_done" string="Done" type="object" states="in_consultation"/>
+                    <button name="action_cancel" string="Cancel" type="object" data-hotkey="z" states="draft, in_consultation"/>
+                    <button name="action_draft" string="Reset to Draft" type="object" states="cancel"/>
+                    <!-- options="{'clickable': '1'}" -->
+                    <field name="state" widget="statusbar" nolable="1" statusbar_visible ="draft,in_consultation,done"/>
                 </header>
             <sheet>
                 <div> 
@@ -72,7 +77,6 @@
                         <field name="patient_id" placeholder= "Enter your Patient ID"/>
                         <field name="gender"/>
                         <field name="age"/>
-                        <field name="test_field"/>
                     </group>
                     <group>
                         <field name="appointment_time"/>

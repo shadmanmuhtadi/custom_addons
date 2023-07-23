@@ -17,7 +17,6 @@ class HospitalAppointment(models.Model):
     ref = fields.Char(string='Reference')
     prescription = fields.Html(string = "Prescription")
     prescription_line_ids = fields.One2many('appointment.prescription.line','appointment_id', string='Prescription Line')
-    test_field = fields.Char(string="Test Field")
     doctor_id=fields.Many2one('res.users',string="Doctor")
     priority = fields.Selection([
         ('0', 'Normal'),
@@ -33,6 +32,22 @@ class HospitalAppointment(models.Model):
     @api.onchange('patient_id')
     def onchange_patient_id(self):
         self.ref = self.patient_id.ref
+
+    def action_in_consultation(self):
+        for rec in self:
+            rec.state = 'in_consultation'
+
+    def action_done(self):
+        for rec in self:
+            rec.state = 'done'
+
+    def action_cancel(self):
+        for rec in self:
+            rec.state = 'cancel'
+
+    def action_draft(self):
+        for rec in self:
+            rec.state = 'draft'
 
     # def action_test(self):
     #     print("Button Clicked!!!!!!!!!!!!")
@@ -68,3 +83,4 @@ class MedicineProduct(models.Model):
     dosage=fields.Html(string="Dosage")
     unit_price= fields.Float(string='Price')
     add_image = fields.Image(string="Add Image")
+
