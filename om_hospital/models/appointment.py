@@ -67,7 +67,6 @@ class AppointmentPrescriptionLine(models.Model):
     name_id=fields.Many2one('medicine.product',string='Medicine')
     qty= fields.Integer(string='Quantity')
     price= fields.Float(related='name_id.unit_price',string='Price')
-
     appointment_id=fields.Many2one('appointment.details',string="Appointment")
 
 

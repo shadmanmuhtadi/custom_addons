@@ -58,15 +58,18 @@
         <field name="name">action.appointment.form.view</field>
         <field name="model">appointment.details</field>
         <field name="arch" type="xml">
-            <form >
+            <form>
                 <header>
-                    <button name="action_in_consultation" string="In consultation" class="oe_highlight" data-hotkey="v" type="object"/>
-                    <button name="action_done" string="Done" type="object" states="in_consultation"/>
-                    <button name="action_cancel" string="Cancel" type="object" data-hotkey="z" states="draft, in_consultation"/>
-                    <button name="action_draft" string="Reset to Draft" type="object" states="cancel"/>
-                    <!-- options="{'clickable': '1'}" -->
-                    <field name="state" widget="statusbar" nolable="1" statusbar_visible ="draft,in_consultation,done"/>
-                </header>
+                    <button name="action_draft" string="Draft" type="object" class="oe_highlight" state="draft, in_consultation"/>
+
+                    <button name="action_in_consultation" string="In Consultation" type="object" class="oe_highlight"/>
+
+                    <button name="action_done" string="Done" type="object"/>
+
+                    <button name="action_cancel" string="Cancel" state="draft" type="object"/>
+
+                    <field name="state" widget="statusbar" nolable="1" statusbar_visible ="draft,in_consultation,done,cancel"/>
+                </header> 
             <sheet>
                 <div> 
                     <h1> <field name="priority" widget="priority"/>

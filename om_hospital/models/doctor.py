@@ -7,6 +7,7 @@ class HospitalDoctor(models.Model):
     name = fields.Char(string='Doctor Name')
     age = fields.Integer(string='Age')
     doctor_id = fields.Char(string='Doctor ID')
+    image = fields.Image(string="Image")
     gender = fields.Selection([
         ('male', 'Male'), 
         ('female', 'Female')], string="Gender")
