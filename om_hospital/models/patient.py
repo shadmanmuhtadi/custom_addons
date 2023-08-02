@@ -9,11 +9,10 @@ class HospitalPatient(models.Model):
     name = fields.Char(string='Patient Name', tracking= True)
     contact_number = fields.Char(string="Contact Number" , tracking= True)
     email = fields.Char(string="Email", tracking= True)
+    image = fields.Image(string = "Image")
     date_of_birth = fields.Date(string="Date of Birth", tracking= True)
     age = fields.Integer(string='Age', compute = '_compute_age', tracking= True)
     ref = fields.Char(string='Patient ID', tracking= True)
-    test_field = fields.Many2one('test.model',string = "Test Field")
-    test_html = fields.Html(string = 'Test HTML')
     gender = fields.Selection([
         ('male', 'Male'), 
         ('female', 'Female')], string="Gender", default = 'male')

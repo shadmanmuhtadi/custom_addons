@@ -16,4 +16,3 @@ access_appointment_prescription_line_doctor,account.prescription.line.doctor,mod
 access_appointment_prescription_line_manager,account.prescription.line.manager,model_appointment_prescription_line,group_manager_user,1,1,1,1
 
 access_medicine_product,access_medicine_product,om_hospital.model_medicine_product,base.group_user,1,1,1,1
-access_test_view,access_test_view,om_hospital.model_test_model,base.group_user,1,1,1,1

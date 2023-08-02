@@ -76,7 +76,6 @@
                 </group>
                 <notebook>
                     <page string= 'Test Page 1' name='appointment'>
-                        <field name="test_html" string="Test HTML" options= "{'resizable':true}"/>
                     </page>
                     <page string= 'Test Page 2' name='test'>
                             <form>
