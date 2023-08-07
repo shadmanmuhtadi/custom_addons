@@ -19,6 +19,7 @@
         'reports/report.xml',
         'reports/sale_report_inherit.xml',  
         'reports/patient_card.xml',  
+        'reports/appointment_card.xml',  
 ],
     'installable': True,
     'application': True,

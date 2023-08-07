@@ -8,5 +8,13 @@
         report_type="qweb-pdf"
         name="om_hospital.report_patient"
         file="om_hospital.report_patient"/>
+    
+    <report
+        id="report_appointment_card"
+        string="Appointment Card"
+        model="appointment.details"
+        report_type="qweb-pdf"
+        name="om_hospital.report_appointment"
+        file="om_hospital.report_appointment"/>
 
 </odoo>

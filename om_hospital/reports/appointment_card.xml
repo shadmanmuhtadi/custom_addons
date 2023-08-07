@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div>
+                        <h1 style="text-align:center; padding-bottom:30px;">Appointment Details</h1>  
+                            <div class="">
+                                <table class="table table-sm table-bottom" style="">
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Name: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.patient_id"/> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Gender: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.gender"/> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Age: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.age"/> </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Appointment_Time: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.appointment_time"/> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Booking_Time: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.booking_time"/> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Ref: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.ref"/> </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><p style="text-align:right;"><strong>Doctor_ID: </strong></p></td>
+                                        <td style="text-align:left;padding-left:10px;"> <span t-field="o.doctor_id"/> </td>
+                                    </tr>
+                                </table>
+
+                                <table class="table table-sm table-dark table-bordered" style="margin-top:40px;">
+                                    <tr>
+                                        <th><p style=""><strong>SN </strong></p></th>
+                                        <th><p style=""><strong>Medicine Name </strong></p></th>
+                                        <th><p style=""><strong>Price </strong></p></th>
+                                        <th><p style=""><strong>Quantity </strong></p></th>
+                                    </tr>
+
+                                    <tr t-foreach='docs' t-as='o'>
+                                        <td><span t-esc="o_index + 1"/> </td>
+                                        <td><span t-esc="o.test_field.name_id"/> </td>
+                                        <td><span t-esc="o.test_field.price"/> </td>
+                                        <td><span t-esc="o.test_field.qty"/> </td>
+                                        <!-- <td style=""> <span t-field="o.variable_price"/> </td>
+                                        <td style=""> <span t-field="o.variable_qty"/> </td> -->
+                                    </tr>
+                                </table>
+                            </div>
+                        </div> 
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
