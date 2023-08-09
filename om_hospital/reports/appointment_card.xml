@@ -54,11 +54,11 @@
                                         <th><p style=""><strong>Quantity </strong></p></th>
                                     </tr>
 
-                                    <tr t-foreach='docs' t-as='o'>
+                                    <tr t-foreach='o.prescription_line_ids' t-as='o'>
                                         <td><span t-esc="o_index + 1"/> </td>
-                                        <td><span t-esc="o.test_field.name_id"/> </td>
-                                        <td><span t-esc="o.test_field.price"/> </td>
-                                        <td><span t-esc="o.test_field.qty"/> </td>
+                                        <td><span t-field="o.name_id"/> </td>
+                                        <td><span t-esc="o.price"/> </td>
+                                        <td><span t-esc="o.qty"/> </td>
                                         <!-- <td style=""> <span t-field="o.variable_price"/> </td>
                                         <td style=""> <span t-field="o.variable_qty"/> </td> -->
                                     </tr>

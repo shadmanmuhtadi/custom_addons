@@ -17,10 +17,6 @@ class HospitalAppointment(models.Model):
     ref = fields.Char(string='Reference')
     prescription = fields.Html(string = "Prescription")
     prescription_line_ids = fields.One2many('appointment.prescription.line','appointment_id', string='Prescription Line')
-    test_field = fields.Many2one('appointment.prescription.line' , string = "Test Fields")
-    variable_name = fields.Char(relaled = 'test_field.name_id')
-    variable_price =fields.Char(relaled = 'test_field.price')
-    variable_qty =fields.Char(relaled = 'test_field.qty')
     doctor_id=fields.Many2one('res.users',string="Doctor")
     priority = fields.Selection([
         ('0', 'Normal'),
