@@ -7,7 +7,7 @@
     'category': 'Productivity',
     'author': 'Shattam',
     'website': '',
-    'depends' : ['mail'],
+    'depends' : ['mail','website'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
@@ -16,6 +16,7 @@
         'views/doctor_view.xml',
         'views/appointment_view.xml',
         'views/medicine_view.xml',
+        'views/assets.xml',
         'reports/report.xml',
         'reports/sale_report_inherit.xml',  
         'reports/patient_card.xml',  
