@@ -18,9 +18,9 @@
                     <filter string="Gender" name="group_by_gender" context="{'group_by': 'gender'}"/>
                     <filter string="Age" name="group_by_age" context="{'group_by': 'age'}"/>
                     <filter string="Reference" name="group_by_ref"  context="{'group_by': 'ref'}"/>
-                </group> -->
+                </group>
                 <searchpanel>
-                </searchpanel>
+                </searchpanel> -->
             </search>
         </field>
     </record>
@@ -59,6 +59,7 @@
         <field name="model">appointment.details</field>
         <field name="arch" type="xml">
             <form>
+            <div style="background-color: #FF7F50; margin: 0% 15%;">
                 <header>
                     <button name="action_draft" string="Draft" type="object" class="oe_highlight" state="draft, in_consultation"/>
 
@@ -108,8 +109,8 @@
                             <field name= 'prescription_line_ids'>
                                 <tree editable="bottom">
                                     <field name= 'name_id'/>
-                                    <field name= 'price'/>
                                     <field name= 'qty'/>
+                                    <field name= 'price'/>
                                 </tree>
                                 <form>
                                     <group>
@@ -124,11 +125,12 @@
                 </notebook>
             </sheet>
             <!-- Chatter -->
-                <div class="oe_chatter">
+                <div class="oe_chatter" style="background-color: #FF7F50;">
                     <field name="message_follower_ids" groups="base.group_user"/>
                     <field name="activity_ids"/>
                     <field name="message_ids"/>
                 </div>
+            </div>
             </form>
         </field>
     </record>
@@ -168,7 +170,12 @@
         </field>
     </record>
 
-
+    <menuitem
+        id="menu_appointment_parent"
+        name="Appointment Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_appointment_view"
+        sequence="10"/>
 
         
 </odoo>

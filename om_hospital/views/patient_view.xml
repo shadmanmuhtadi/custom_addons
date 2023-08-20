@@ -11,9 +11,9 @@
                 <field name="ref"/> 
                 <field name="age"/>
                 <field name="gender"/>
-                <searchpanel>
-                    <field name="gender" string="Gender" icon="fa-light fa-users" select="multi" enable_counters="1"/>
-                </searchpanel>
+                <!-- <searchpanel>
+                    <field name="gender" string="Gender" icon="fa-light fa-users" select="multi"/>
+                </searchpanel> -->
             </search>
         </field>
     </record>
@@ -128,6 +128,13 @@
         Add a new Patient</p>
         </field>
     </record>
+
+    <menuitem
+        id="menu_patient_parent"
+        name="Patient Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_patient_view"
+        sequence="10"/>
 
 
 </odoo>

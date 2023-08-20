@@ -3,16 +3,21 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_patient_details_patient,account.patient.details.patient,model_patient_details,group_patient_user,1,0,0,0
 access_patient_details_doctor,account.patient.details.doctor,model_patient_details,group_doctor_user,1,0,1,0
 access_patient_details_manager,account.patient.details.manager,model_patient_details,group_manager_user,1,1,1,1
+access_patient_details_manager,account.patient.details.manager,model_patient_details,base.group_user,1,1,1,1
 
 access_doctor_details_patient,account.doctor.details.patient,model_doctor_details,group_doctor_user,0,0,0,0
 access_doctor_details_doctor,account.doctor.details.doctor,model_doctor_details,group_doctor_user,1,0,1,0
 access_doctor_details_manager,account.doctor.details.manager,model_doctor_details,group_manager_user,1,1,1,1
+access_doctor_details_manager,account.doctor.details.manager,model_doctor_details,base.group_user,1,1,1,1
 
 access_appointment_details_doctor,account.appointment.details.manager,model_appointment_details,group_doctor_user,1,1,1,0
 access_appointment_details_manager,account.appointment.details.manager,model_appointment_details,group_manager_user,1,1,1,1
+access_appointment_details_manager,account.appointment.details.manager,model_appointment_details,base.group_user,1,1,1,1
 
 access_appointment_prescription_line_patient,account.appointment.prescription.line.patient,model_appointment_prescription_line,group_patient_user,1,0,0,0
 access_appointment_prescription_line_doctor,account.prescription.line.doctor,model_appointment_prescription_line,group_doctor_user,1,0,1,0
 access_appointment_prescription_line_manager,account.prescription.line.manager,model_appointment_prescription_line,group_manager_user,1,1,1,1
+access_appointment_prescription_line_manager,account.prescription.line.manager,model_appointment_prescription_line,base.group_user,1,1,1,1
 
 access_medicine_product,access_medicine_product,om_hospital.model_medicine_product,base.group_user,1,1,1,1
+access_doctor_employee,access_doctor_employee,om_hospital.model_doctor_employee,base.group_user,1,1,1,1

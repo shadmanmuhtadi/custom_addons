@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Form View -->
+
+    <record  id="action_patient_form_view_inherit" model="ir.ui.view">
+        <field name="name">action.patient.form.view</field>
+        <field name="model">doctor.employee</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name"/>                        
+                    </group>
+                    <group>
+                        <field name="name"/>                        
+                    </group>
+                </group>
+            </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+
+    <record id="action_patient_tree_view_inherit" model="ir.ui.view">
+        <field name="name">action.patient.tree.view</field>
+        <field name="model">doctor.employee</field>
+        <field name="arch" type="xml">
+        <tree name="Patient">
+            <field name="name"/>
+            <field name="partner_ref"/>
+        </tree>
+        </field>
+    </record>
+
+    <!-- Action View -->
+
+    <record id="action_patient_view_inherit" model="ir.actions.act_window">
+        <field name="name">inherit</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">doctor.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+        Add a new Patient</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_patient_parent_inherit"
+        name="inherit view"
+        parent="menu_hospital_managment_system_root"
+        action="action_patient_view_inherit"
+        sequence="10"/>
+
+
+</odoo>

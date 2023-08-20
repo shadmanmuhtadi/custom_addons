@@ -18,6 +18,7 @@ class HospitalAppointment(models.Model):
     prescription = fields.Html(string = "Prescription")
     prescription_line_ids = fields.One2many('appointment.prescription.line','appointment_id', string='Prescription Line')
     doctor_id=fields.Many2one('res.users',string="Doctor")
+    sutotal = fields.Float(compute = '_subtotal', string="Sub Total",readonly = True)
     priority = fields.Selection([
         ('0', 'Normal'),
         ('1', 'Low'),

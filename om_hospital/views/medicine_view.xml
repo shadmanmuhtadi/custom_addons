@@ -84,7 +84,7 @@
         <field name="name">action.medicine.tree.view</field>
         <field name="model">medicine.product</field>
         <field name="arch" type="xml">
-        <tree name="Medicine">
+        <tree name="Medicine" sample="1">
             <field name="name"/>
             <field name="strength"/> 
             <field name="manufacture"/>
@@ -109,4 +109,10 @@
         </field>
     </record>
 
+    <menuitem
+        id="menu_medicine_parent"
+        name="Medicine Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_medicine_view"
+        sequence="10"/>
 </odoo>

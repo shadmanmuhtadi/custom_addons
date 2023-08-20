@@ -91,7 +91,7 @@
         <field name="name">action.doctor.tree.view</field>
         <field name="model">doctor.details</field>
         <field name="arch" type="xml">
-        <tree name="Patient">
+        <tree name="Patient" sample="1">
             <field name="name"/>
             <field name="doctor_id"/> 
             <field name="age"/>
@@ -114,6 +114,13 @@
         Add a new Doctor</p>
         </field>
     </record>
+
+    <menuitem
+        id="menu_doctor_parent"
+        name="Doctor Details"
+        parent="menu_hospital_managment_system_root"
+        action="action_doctor_view"
+        sequence="10"/>
 
 
 </odoo>
